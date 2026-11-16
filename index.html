@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b18">
+  <meta name="description" content="探索太陽與八大行星的互動式太陽系模型。">
+  <title>星際漫遊｜互動式太陽系</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="星際漫遊首頁">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>星際漫遊</span>
+      </a>
+      <div class="topbar-note"><span class="status-dot"></span>互動式太陽系模型</div>
+    </header>
+
+    <main class="layout">
+      <section class="universe-panel" aria-label="太陽系行星軌道圖">
+        <div class="scene-heading">
+          <p class="eyebrow">SOLAR SYSTEM · 太陽系</p>
+          <h1>我們的<span>宇宙鄰居</span></h1>
+          <p class="scene-subtitle">點選行星，展開它的星際故事。</p>
+        </div>
+
+        <div class="solar-system" id="solar-system" aria-label="太陽與八大行星">
+          <div class="sun-halo" aria-hidden="true"></div>
+          <button class="sun" type="button" aria-label="太陽">
+            <span class="sun-core"></span>
+            <span class="sun-label">太陽</span>
+          </button>
+          <div class="orbits" id="orbits"></div>
+        </div>
+
+        <div class="scene-footer">
+          <span><i class="legend-dot"></i>行星軌道示意圖</span>
+          <span class="hint">軌道與行星大小非實際比例</span>
+        </div>
+      </section>
+
+      <aside class="side-panel" aria-label="模擬器控制與行星資訊">
+        <section class="control-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">FLIGHT CONTROL</p>
+              <h2>航行控制</h2>
+            </div>
+            <span class="control-icon" aria-hidden="true">⌁</span>
+          </div>
+          <div class="playback-row">
+            <button class="primary-button" id="toggle-button" type="button" aria-pressed="false">
+              <span id="toggle-icon" aria-hidden="true">Ⅱ</span>
+              <span id="toggle-text">暫停公轉</span>
+            </button>
+            <button class="icon-button" id="reset-button" type="button" aria-label="重設行星位置" title="重設行星位置">↺</button>
+          </div>
+          <div class="speed-control">
+            <div class="speed-labels"><label for="speed-slider">公轉速度</label><output id="speed-value" for="speed-slider">1.0×</output></div>
+            <input id="speed-slider" type="range" min="0" max="3" value="1" step="0.1">
+            <div class="range-labels"><span>慢</span><span>快</span></div>
+          </div>
+        </section>
+
+        <section class="planet-card" id="planet-card" aria-live="polite">
+          <div class="planet-card-top">
+            <span class="planet-emblem" id="planet-emblem" aria-hidden="true">☉</span>
+            <span class="planet-kicker" id="planet-kicker">SOLAR SYSTEM</span>
+          </div>
+          <h2 id="planet-name">太陽系探索</h2>
+          <p class="planet-summary" id="planet-summary">選擇一顆行星，認識它的特色與在太陽系中的位置。</p>
+          <div class="planet-facts" id="planet-facts">
+            <div class="fact-row"><span>行星數量</span><strong>8 顆</strong></div>
+            <div class="fact-row"><span>所在星系</span><strong>銀河系</strong></div>
+          </div>
+          <p class="select-hint">也可以直接點選軌道上的行星</p>
+        </section>
+
+        <section class="planet-list-card">
+          <div class="list-heading"><h2>行星一覽</h2><span>由近至遠</span></div>
+          <nav class="planet-list" id="planet-list" aria-label="選擇行星"></nav>
+        </section>
+        <footer class="side-footer">以好奇心為燃料，向星海出發 <span>✦</span></footer>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
